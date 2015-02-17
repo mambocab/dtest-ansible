@@ -1,0 +1,4 @@
+- name: Create virtualenv with miniconda
+  command: conda create python=2 pip -n {{virtualenv_name}}
+  args:
+    creates: "{{virtualenv_dir}}/{{virtualenv_name}}"

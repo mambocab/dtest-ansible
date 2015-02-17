@@ -1,0 +1,2 @@
+- name: clone cassandra-dtest repository
+  git: repo=https://github.com/riptano/cassandra-dtest dest="{{cstar_source_location}}/cassandra-dtest"

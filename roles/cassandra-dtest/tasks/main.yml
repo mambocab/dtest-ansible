@@ -1,0 +1,14 @@
+- name: Clone dtest repo
+  git: repo=https://github.com/riptano/cassandra-dtest dest="{{cstar_source_location}}/cassandra-dtest"
+
+- name: Clone cql repo
+  git: repo=https://code.google.com/a/apache-extras.org/p/cassandra-dbapi2/ dest="{{cstar_source_location}}/cassandra-dbapi2
+
+- name: Install local cassandra-dbapi2 package
+  pip: name=cassandra-dbapi2 extra_args='-e .' virtualenv="{{virtualenv_dir}}/{{virtualenv_name}} chdir="{{cstar_source_location}}/cassandra-dbapi2"
+
+- name: Install nose
+  pip: name=python-nose virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}"
+
+- name: Install decorator library
+  pip: name=decorator virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}"

@@ -1,0 +1,12 @@
+- name: Clone ccm repo
+  git: repo=https://github.com/pcmanus/ccm dest="{{cstar_source_location}}/ccm"
+
+- name: Install libyaml
+  apt: pkg=libyaml-dev
+  sudo: yes
+
+- name: Install local ccm package
+  pip: name=ccm extra_args='-e' virtualenv="{{virtualenv_dir}}/{{virtualenv_name}} chdir="{{cstar_source_location}}/ccm"
+
+- name: Install pyyaml
+  pip: name=pyyaml virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}

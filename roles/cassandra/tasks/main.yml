@@ -1,0 +1,7 @@
+- name: Clone Cassandra repository
+  git: repo=http://git-wip-us.apache.org/repos/asf/cassandra.git dest="{{cstar_source_location}}/cassandra"
+
+- name: Build Cassandra
+  command: ant clean jar
+  args:
+    chdir: "{{cstar_source_location}}/cassandra"
