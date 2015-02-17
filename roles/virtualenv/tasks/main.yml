@@ -2,3 +2,8 @@
   command: conda create python=2 pip -n {{virtualenv_name}}
   args:
     creates: "{{virtualenv_dir}}/{{virtualenv_name}}"
+
+# until https://github.com/ansible/ansible-modules-core/pull/689
+# gets merged we have to install virtualenv even when we don't use it
+- name: Install virtualenv to appease the bug gods
+  pip: name=virtualenv
