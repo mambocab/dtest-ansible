@@ -1,2 +1,12 @@
-- include: "debian.yml"
-  when: ansible_os_family == "Debian"
+- name: Collecting facts
+  hosts: local
+  connection: local
+  gather_facts: yes
+
+- name: Install dtest dependencies
+  connection: local
+  hosts: local
+  roles:
+    - dtest
+  vars:
+    cstar_source_location: "~/cstar_src"

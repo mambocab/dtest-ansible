@@ -1,0 +1,25 @@
+- name: Collecting facts
+  hosts: local
+  connection: local
+  gather_facts: yes
+
+- name: Install dtest dependencies
+  connection: local
+  hosts: local
+  roles:
+    - cassandra
+    - cassandra-dtest
+    - ccm
+    - cql
+    - dtest
+    - java
+    - python
+  vars:
+    cstar_source_location: "~/cstar_src"
+  vars_prompt:
+    - name: "virtualenv_dir"
+      prompt: "Enter the name of the directory where virtual environments are stored"
+      default: "~/miniconda/envs/"
+    - name: "virtualenv_name"
+      prompt: "Enter name of virtualenv for installing from pip"
+      default: "cstar_te"
