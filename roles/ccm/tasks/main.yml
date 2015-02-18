@@ -6,7 +6,7 @@
   sudo: yes
 
 - name: Install local ccm package
-  pip: name=ccm extra_args='-e' virtualenv="{{virtualenv_dir}}/{{virtualenv_name}} chdir="{{cstar_source_location}}/ccm"
+  pip: name="{{cstar_source_location}}/ccm" extra_args="-e" virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}"
 
 - name: Install pyyaml
-  pip: name=pyyaml virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}
+  pip: name=pyyaml virtualenv="{{virtualenv_dir}}/{{virtualenv_name}}"

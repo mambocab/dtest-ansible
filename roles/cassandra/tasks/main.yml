@@ -1,7 +1,14 @@
 - name: Clone Cassandra repository
   git: repo=http://git-wip-us.apache.org/repos/asf/cassandra.git dest="{{cstar_source_location}}/cassandra"
 
+- name: Install ant
+  sudo: yes
+  action: apt pkg={{item}} state=present
+  with_items:
+    - ant
+    - ant-optional
+
 - name: Build Cassandra
-  command: ant clean jar
+  command: ant jar
   args:
     chdir: "{{cstar_source_location}}/cassandra"
