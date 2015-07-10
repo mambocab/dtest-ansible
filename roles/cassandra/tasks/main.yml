@@ -7,8 +7,3 @@
   with_items:
     - ant
     - ant-optional
-
-- name: Build Cassandra
-  command: ant jar
-  args:
-    chdir: "{{cstar_source_location}}/cassandra"
